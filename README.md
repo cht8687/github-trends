@@ -33,7 +33,7 @@
 </p>
 
 <p align="center"><big>
-Watch all trending repos in your Terminal with ease
+
 </big></p>
 
 
