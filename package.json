@@ -1,0 +1,59 @@
+{
+  "name": "github-trends",
+  "version": "1.0.0",
+  "description": "github trend",
+  "main": "dist/index.js",
+  "files": [
+    "bin/",
+    "dist/"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "eslint src test",
+    "check": "npm run lint -s && dependency-check package.json --entry src",
+    "watch": "watch 'npm run build' src test",
+    "test": "babel-node test/index.js | tspec",
+    "prebuild": "npm run check -s && npm run clean -s",
+    "build": "babel --optional runtime src -d dist",
+    "postbuild": "npm run test -s",
+    "coverage": "babel-node node_modules/isparta/bin/isparta cover test/index.js",
+    "coveralls": "npm run coverage -s && coveralls < coverage/lcov.info",
+    "postcoveralls": "rimraf ./coverage",
+    "prepublish": "npm run build -s",
+    "deploy": "git pull --rebase origin master && git push origin master",
+    "patch": "npm version patch && npm publish",
+    "minor": "npm version minor && npm publish",
+    "major": "npm version major && npm publish",
+    "postpublish": "git push origin master --follow-tags",
+    "toc": "doctoc --github --title \"# Changelog\" CHANGELOG.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cht8687/github-trends.git"
+  },
+  "keywords": [
+    "github",
+    "github-trend",
+    "github trend",
+    "github news",
+    "github stars"
+  ],
+  "author": "Robert Chang <cht8687@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cht8687/github-trends/issues"
+  },
+  "homepage": "https://github.com/cht8687/github-trends#readme",
+  "devDependencies": {
+    "eslint": "*",
+    "babel-eslint": "*",
+    "coveralls": "*",
+    "isparta": "*",
+    "tape": "*",
+    "tap-spec": "*",
+    "rimraf": "*",
+    "dependency-check": "*",
+    "watch": "*",
+    "doctoc": "*"
+  }
+}
