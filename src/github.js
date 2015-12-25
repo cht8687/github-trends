@@ -27,6 +27,6 @@ function printTrend() {
   printProject(2);
 }
 
-export default function githubTrend() {
+export default function githubtrend() {
   printTrend();
 }
