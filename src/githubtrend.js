@@ -22,9 +22,9 @@ ${chalk.yellow('JavaScript')} ${chalk.green('•')} ${chalk.blue('223')} ${chalk
 }
 
 function printTrend() {
-  printTitle();
-  printProject(1);
-  printProject(2);
+  console.log(printTitle());
+  console.log(printProject(1));
+  console.log(printProject(2));
 }
 
 export default function githubtrend() {

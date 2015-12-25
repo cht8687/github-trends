@@ -10,4 +10,4 @@ var cli = meow(`Usage
     githubtrend 
 `);
 
-console.log(githubtrend(cli.input[0]));
+console.log(githubtrend());
